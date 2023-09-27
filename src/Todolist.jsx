@@ -5,20 +5,26 @@ function Todolist(){
         var v=document.getElementById("ss").value 
          setTodos([...todos,v])
     }
+    function del(i){
+        var tn=[...todos]
+        tn.splice(i,1)
+       setTodos([...tn])
+    }
     
     return(
         <div className="mybox">
             <input type="text" id="ss"></input>
             <button onClick={abc}>Add todo</button>
-            {
+          <ol>  {
                 todos.map((todo,i)=>{
                     return (
                         <li>
-                            {todo}
+                           <h1>{todo}</h1>
+                           <button onClick={()=>del(i)}>delete</button>
                         </li>
                     )
                 })
-            }
+            }</ol>
         </div>
     )
 }
